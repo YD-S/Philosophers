@@ -36,6 +36,8 @@ int	ft_fork_init(t_main *main)
 	}
 	if (pthread_mutex_init(&main->write_mutex, NULL) != 0)
 		return (ERROR);
+	if (pthread_mutex_init(&main->is_eating, NULL) != 0)
+		return (ERROR);
 	return (SUCESS);
 }
 
@@ -43,18 +45,18 @@ int	ft_philo_init(t_main *main)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	main->philos = malloc(sizeof(t_philo) * main->philo_count);
 	if (!main->philos)
 		return (ERROR);
 	while (i < main->philo_count)
 	{
-		main->philos[i].position = i;
+		main->philos[i].position = i + 1;
+		main->philos[i].is_dead = 0;
 		main->philos[i].meal_count = 0;
 		main->philos[i].last_meal = 0;
-		main->philos[i].is_eating = 0;
-		main->philos[i].left_fork = &main->forks[i - 1];
-		main->philos[i].right_fork = &main->forks[i];
+		main->philos[i].left_fork = i;
+		main->philos[i].right_fork = (i + 1) % main->philo_count;
 		main->philos[i].main = main;
 		i++;
 	}

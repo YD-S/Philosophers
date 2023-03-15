@@ -4,12 +4,10 @@ CFLAGS = -Wall -Wextra -Werror -DM
 
 NAME = Philo
 SRC_DIR = src
-SRC = main.c prints.c init.c time.c utils.c
+SRC = main.c prints.c init.c time.c utils.c routine.c
 BUILD_DIR = build
 INCLUDE_DIR = includes
 INCLUDES = -I./$(INCLUDE_DIR)
-LIB_DIR = lib
-LIBS = -L./$(LIB_DIR)
 
 
 # Do not change these

@@ -29,8 +29,8 @@ int	ft_atoi(const char *str)
 
 int	ft_check_args(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (argv[i])
@@ -50,7 +50,7 @@ int	ft_check_args(char **argv)
 	return (SUCESS);
 }
 
-void	clear_data(t_main	*data)
+void	clear_data(t_main *data)
 {
 	if (data->forks)
 		free(data->forks);
@@ -69,3 +69,43 @@ void	ft_exit(t_main *data)
 	clear_data(data);
 }
 
+size_t	get_last_meal(t_philo *philo)
+{
+	size_t	last_meal;
+
+	pthread_mutex_lock(&philo->main->write_mutex);
+	last_meal = philo->last_meal;
+	pthread_mutex_unlock(&philo->main->write_mutex);
+	return (last_meal);
+}
+
+void	set_last_meal(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->main->write_mutex);
+	philo->last_meal = get_time();
+	pthread_mutex_unlock(&philo->main->write_mutex);
+}
+
+void	set_meal_count(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->main->write_mutex);
+	philo->meal_count++;
+	pthread_mutex_unlock(&philo->main->write_mutex);
+}
+
+int	get_meal_count(t_philo *philo)
+{
+	int meal_count;
+
+	pthread_mutex_lock(&philo->main->write_mutex);
+	meal_count = philo->meal_count;
+	pthread_mutex_unlock(&philo->main->write_mutex);
+	return (meal_count);
+}
+
+void set_is_dead(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->main->write_mutex);
+	philo->is_dead = 1;
+	pthread_mutex_unlock(&philo->main->write_mutex);
+}

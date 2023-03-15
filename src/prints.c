@@ -5,8 +5,8 @@ void	ft_print_status(t_philo *philo, size_t timestamp, int action)
 {
 	pthread_mutex_lock(&philo->main->write_mutex);
 	if (action == 1)
-		printf(FBLUE "[%lu ms] philo %d has taken a fork 🥶\n" NONE, timestamp,
-				philo->position);
+		printf("%s[%lu ms] philo %d has taken a fork 🥶\n" NONE, FBLUE,
+				timestamp, philo->position);
 	else if (action == 2)
 		printf(FPURPLE "[%lu ms] philo %d is eating 🤌\n" NONE, timestamp,
 				philo->position);
@@ -24,8 +24,7 @@ void	ft_print_status(t_philo *philo, size_t timestamp, int action)
 	}
 	pthread_mutex_unlock(&philo->main->write_mutex);
 }
-
-void	ft_print_error(int error)
+int	ft_print_error(int error)
 {
 	if (error == 1)
 		printf(FRED "Error: Invalid number of arguments\n" NONE);
@@ -35,4 +34,5 @@ void	ft_print_error(int error)
 		printf(FRED "Error: Failed to create thread\n" NONE);
 	else if (error == 4)
 		printf(FRED "Error: Failed to create mutex\n" NONE);
+	return (FALIURE);
 }
