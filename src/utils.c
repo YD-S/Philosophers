@@ -67,6 +67,7 @@ void	ft_exit(t_main *data)
 		pthread_mutex_destroy(&data->forks[i]);
 	pthread_mutex_destroy(&data->write_mutex);
 	clear_data(data);
+    exit(0);
 }
 
 size_t	get_last_meal(t_philo *philo)
@@ -108,4 +109,22 @@ void set_is_dead(t_philo *philo)
 	pthread_mutex_lock(&philo->main->write_mutex);
 	philo->is_dead = 1;
 	pthread_mutex_unlock(&philo->main->write_mutex);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+    char	*ptr;
+    size_t	i;
+
+    ptr = malloc(count * size);
+    if (!ptr)
+        return (NULL);
+    i = 0;
+
+    while (i < count * size)
+    {
+        ptr[i] = 0;
+        i++;
+    }
+    return (ptr);
 }

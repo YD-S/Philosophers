@@ -16,7 +16,6 @@ int	ft_init(int argc, char **argv, t_main *main)
 		ft_print_error(1);
 		return (ERROR);
 	}
-	main->start_time = get_time();
 	return (SUCESS);
 }
 
@@ -25,7 +24,7 @@ int	ft_fork_init(t_main *main)
 	int	i;
 
 	i = 0;
-	main->forks = malloc(sizeof(pthread_mutex_t) * main->philo_count);
+	main->forks = ft_calloc(sizeof(pthread_mutex_t), main->philo_count);
 	if (!main->forks)
 		return (ERROR);
 	while (i < main->philo_count)
@@ -46,7 +45,7 @@ int	ft_philo_init(t_main *main)
 	int i;
 
 	i = 0;
-	main->philos = malloc(sizeof(t_philo) * main->philo_count);
+	main->philos = ft_calloc(sizeof(t_philo), main->philo_count);
 	if (!main->philos)
 		return (ERROR);
 	while (i < main->philo_count)
@@ -55,10 +54,20 @@ int	ft_philo_init(t_main *main)
 		main->philos[i].is_dead = 0;
 		main->philos[i].meal_count = 0;
 		main->philos[i].last_meal = 0;
-		main->philos[i].left_fork = i;
-		main->philos[i].right_fork = (i + 1) % main->philo_count;
+        if (i % 2 == 0)
+        {
+            main->philos[i].right_fork = (i + 1) % main->philo_count;
+            main->philos[i].left_fork = i;
+        }
+        else
+        {
+            main->philos[i].right_fork = i;
+            main->philos[i].left_fork = (i + 1) % main->philo_count;
+        }
 		main->philos[i].main = main;
 		i++;
 	}
+    main->philos[main->philo_count - 1].left_fork = main->philo_count - 1;
+    main->philos[main->philo_count - 1].right_fork = 0;
 	return (SUCESS);
 }

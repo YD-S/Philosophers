@@ -1,6 +1,6 @@
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -DM
+CFLAGS = -Wall -Wextra -Werror -DM -g
 
 NAME = Philo
 SRC_DIR = src
