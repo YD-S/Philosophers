@@ -21,22 +21,24 @@ int	ft_start(t_main *main)
 	if (pthread_create(&tid, NULL, &ft_check_death, (void *)main))
 		return (ft_print_error(3));
 	pthread_detach(tid);
+    while (1);
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	t_main	main;
+	t_main	*main;
 
+    main = ft_calloc(sizeof(t_main), 1);
 	if (argc != 5 && argc != 6)
 		return (ft_print_error(1));
 	if (ft_check_args(argv) == ERROR)
 		return (FALIURE);
-	if (ft_init(argc, argv, &main) == ERROR || ft_fork_init(&main) == ERROR
-		|| ft_philo_init(&main) == ERROR)
+	if (ft_init(argc, argv, main) == ERROR || ft_fork_init(main) == ERROR
+		|| ft_philo_init(main) == ERROR)
 		return (FALIURE);
-	if (ft_start(&main) == ERROR)
+	if (ft_start(main) == ERROR)
 		return (FALIURE);
-	ft_exit(&main);
+	ft_exit(main);
 	return (SUCESS);
 }

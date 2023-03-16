@@ -30,7 +30,6 @@ typedef struct s_main
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				total_meals;
-	size_t			start_time;
 	pthread_mutex_t	is_eating;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write_mutex;
@@ -67,5 +66,6 @@ void				set_last_meal(t_philo *philo);
 void				set_meal_count(t_philo *philo);
 int					get_meal_count(t_philo *philo);
 void				set_is_dead(t_philo *philo);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif

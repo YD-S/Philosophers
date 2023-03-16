@@ -39,24 +39,25 @@ void	*ft_check_death(void *temp_main)
 	t_main	*main;
 	int		i;
 	int 	finished;
+    int     is_dead;
 
 	main = (t_main *)temp_main;
-	while (1)
-	{
-		finished = 0;
-		i = 0;
-		while (i < main->philo_count)
-		{
-			if (ft_is_dead(&main->philos[i]))
-				return (NULL);
-			if (get_meal_count(&main->philos[i]) >= main->total_meals)
-				finished++;
-			i++;
-		}
-		if (finished == main->philo_count)
-			return (NULL);
-		ft_usleep(5);
-	}
+    is_dead = 0;
+	while (!is_dead) {
+        finished = 0;
+        i = 0;
+        while (i < main->philo_count) {
+            if (ft_is_dead(&main->philos[i]))
+                ft_exit(main);
+            if (get_meal_count(&main->philos[i]) >= main->total_meals && main->total_meals != -1)
+                finished++;
+            i++;
+        }
+        if (finished == main->philo_count)
+            break;
+        ft_usleep(5);
+    }
+    return (NULL);
 }
 
 int	ft_is_dead(t_philo *philo)
@@ -75,11 +76,14 @@ void	*routine(void *temp_philo)
 	t_philo *philo;
 
 	philo = (t_philo *)temp_philo;
+    ft_usleep(10);
+    printf("philo %d is alive\n", philo->position);
 	while (!philo->is_dead)
 	{
 		ft_eat(philo);
 		ft_sleep(philo);
 		ft_think(philo);
 	}
+    printf("philo %d is dead\n", philo->is_dead);
 	return (NULL);
 }
