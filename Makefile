@@ -1,6 +1,6 @@
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -DM -g
+CFLAGS = -Wall -Wextra -Werror -O2 -MD -g -fsanitize=thread
 
 NAME = Philo
 SRC_DIR = src

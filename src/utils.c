@@ -64,10 +64,12 @@ void	ft_exit(t_main *data)
 
 	i = -1;
 	while (++i < data->philo_count)
+	{
+		ft_unlocker(&data->philos[i]);
 		pthread_mutex_destroy(&data->forks[i]);
+	}
 	pthread_mutex_destroy(&data->write_mutex);
 	clear_data(data);
-    exit(0);
 }
 
 size_t	get_last_meal(t_philo *philo)
@@ -96,7 +98,7 @@ void	set_meal_count(t_philo *philo)
 
 int	get_meal_count(t_philo *philo)
 {
-	int meal_count;
+	int	meal_count;
 
 	pthread_mutex_lock(&philo->main->write_mutex);
 	meal_count = philo->meal_count;
@@ -104,27 +106,59 @@ int	get_meal_count(t_philo *philo)
 	return (meal_count);
 }
 
-void set_is_dead(t_philo *philo)
+void	set_is_dead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->main->write_mutex);
 	philo->is_dead = 1;
 	pthread_mutex_unlock(&philo->main->write_mutex);
 }
 
+int	get_is_dead(t_philo *philo)
+{
+	int	dead;
+
+	pthread_mutex_lock(&philo->main->write_mutex);
+	dead = philo->is_dead;
+	pthread_mutex_unlock(&philo->main->write_mutex);
+	return (dead);
+}
+
+int	ft_get_out(t_main *main)
+{
+	int	out;
+
+	pthread_mutex_lock(&main->write_mutex);
+	out = main->out;
+	pthread_mutex_unlock(&main->write_mutex);
+	return (out);
+}
+
+void	ft_set_out(t_main *main)
+{
+	pthread_mutex_lock(&main->write_mutex);
+	main->out = 1;
+	pthread_mutex_unlock(&main->write_mutex);
+}
+
 void	*ft_calloc(size_t count, size_t size)
 {
-    char	*ptr;
-    size_t	i;
+	char	*ptr;
+	size_t	i;
 
-    ptr = malloc(count * size);
-    if (!ptr)
-        return (NULL);
-    i = 0;
+	i = 0;
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	while (i < count * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
 
-    while (i < count * size)
-    {
-        ptr[i] = 0;
-        i++;
-    }
-    return (ptr);
+void	ft_unlocker(t_philo *philo)
+{
+	pthread_mutex_unlock(&philo->main->forks[philo->left_fork]);
+	pthread_mutex_unlock(&philo->main->forks[philo->right_fork]);
 }

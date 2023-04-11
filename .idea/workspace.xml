@@ -3,12 +3,15 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="Philosophers" targetName="re" />
-      <config projectName="Philosophers" targetName="all" />
-      <config projectName="Philosophers" targetName="Philo" />
-      <config projectName="Philosophers" targetName="fclean" />
+      <config projectName="Philo" targetName="re" />
+      <config projectName="Philo" targetName="Philo" />
+      <config projectName="Philo" targetName="all" />
+      <config projectName="Philo" targetName="fclean" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -18,8 +21,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="696a806c-fd83-4865-a269-054381d9c879" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/philo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prints.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/prints.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routine.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/routine.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,14 +63,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="Philosophers" />
+              <option name="name" value="Philo" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="Philosophers" />
+                <option name="name" value="Philo" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -89,50 +98,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cf.first.check.clang-format" value="false" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration name="Philo" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="Philo" CONFIG_NAME="Philo" version="1">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Philo" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philo" TARGET_NAME="Philo" CONFIG_NAME="Philo" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="5 800 200 200" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/build/Philo">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philo" TARGET_NAME="all" CONFIG_NAME="all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philo" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philo" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -155,14 +158,18 @@
       <workItem from="1678812576964" duration="5498000" />
       <workItem from="1678876906503" duration="48000" />
       <workItem from="1678876959825" duration="2056000" />
-      <workItem from="1678921142463" duration="142000" />
-      <workItem from="1678921340224" duration="1901000" />
-      <workItem from="1678975832657" duration="951000" />
-      <workItem from="1678976818234" duration="59000" />
-      <workItem from="1678976895389" duration="1704000" />
-      <workItem from="1678988646947" duration="41000" />
-      <workItem from="1678999405285" duration="1795000" />
-      <workItem from="1679494061777" duration="8000" />
+      <workItem from="1679053411248" duration="691000" />
+      <workItem from="1679076445281" duration="3099000" />
+      <workItem from="1679493716146" duration="1213000" />
+      <workItem from="1679499310325" duration="598000" />
+      <workItem from="1679508428739" duration="3703000" />
+      <workItem from="1679599789388" duration="4286000" />
+      <workItem from="1679744525310" duration="877000" />
+      <workItem from="1679822630826" duration="27000" />
+      <workItem from="1680253405185" duration="4148000" />
+      <workItem from="1680268220387" duration="572000" />
+      <workItem from="1680269079092" duration="8000" />
+      <workItem from="1681221729157" duration="1676000" />
     </task>
     <servers />
   </component>
@@ -179,19 +186,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="CidrExceptionBreakpoint" />
-      </default-breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CLionNativeAppRunConfigurationType">
-        <watch expression="main-&gt;philo_count" language="ObjectiveC" />
-        <watch expression="tid-&gt;__opaque" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
