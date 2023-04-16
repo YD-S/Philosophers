@@ -1,10 +1,10 @@
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -O2 -MD -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -MD -g
 
 NAME = Philo
 SRC_DIR = src
-SRC = main.c prints.c init.c time.c utils.c routine.c
+SRC = main.c prints.c init.c time.c utils.c routine.c utils2.c utils3.c utils4.c
 BUILD_DIR = build
 INCLUDE_DIR = includes
 INCLUDES = -I./$(INCLUDE_DIR)
@@ -16,9 +16,10 @@ OBJ_DIR = $(BUILD_DIR)/obj
 OBJ = $(SRC:.c=.o)
 OBJ_FILES = $(addprefix $(OBJ_DIR)/, $(OBJ))
 
--include $(OBJ_FILES:.o=.d)
 
 all: $(NAME)
+
+-include $(OBJ_FILES:.o=.d)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "\033[0;32mCompiling $<\033[0m"

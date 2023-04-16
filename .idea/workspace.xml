@@ -3,9 +3,6 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakePresetLoader">{
-  &quot;useNewFormat&quot;: true
-}</component>
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="Philo" targetName="re" />
@@ -20,7 +17,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="696a806c-fd83-4865-a269-054381d9c879" name="Changes" comment="">
+    <list default="true" id="f133ce37-9dd9-4d7f-907d-6ae6cc5316be" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Philosophers.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/philo.h" afterDir="false" />
@@ -28,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/prints.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/prints.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routine.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/routine.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/time.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/time.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,16 +46,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="MacroExpansionManager">
-    <option name="directoryName" value="yqydctal" />
+    <option name="directoryName" value="da95fupr" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
@@ -84,15 +76,12 @@
       </map>
     </option>
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
-    <option name="majorVersion" value="2022" />
-    <option name="minorVersion" value="3.2" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2MvWwFwi6r08reSzucgzBjirvMt" />
+  <component name="ProjectId" id="2OIFEf81OtKdAtWwgAuWloKCQ8z" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -100,6 +89,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
@@ -123,7 +113,7 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philo" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="69 69 4200 420" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philo" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/build/Philo">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -148,43 +138,31 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="696a806c-fd83-4865-a269-054381d9c879" name="Changes" comment="" />
-      <created>1678648772983</created>
+      <changelist id="f133ce37-9dd9-4d7f-907d-6ae6cc5316be" name="Changes" comment="" />
+      <created>1681240079294</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678648772983</updated>
-      <workItem from="1678648774463" duration="2604000" />
-      <workItem from="1678725824671" duration="3671000" />
-      <workItem from="1678812576964" duration="5498000" />
-      <workItem from="1678876906503" duration="48000" />
-      <workItem from="1678876959825" duration="2056000" />
-      <workItem from="1679053411248" duration="691000" />
-      <workItem from="1679076445281" duration="3099000" />
-      <workItem from="1679493716146" duration="1213000" />
-      <workItem from="1679499310325" duration="598000" />
-      <workItem from="1679508428739" duration="3703000" />
-      <workItem from="1679599789388" duration="4286000" />
-      <workItem from="1679744525310" duration="877000" />
-      <workItem from="1679822630826" duration="27000" />
-      <workItem from="1680253405185" duration="4148000" />
-      <workItem from="1680268220387" duration="572000" />
-      <workItem from="1680269079092" duration="8000" />
-      <workItem from="1681221729157" duration="1676000" />
+      <updated>1681240079294</updated>
+      <workItem from="1681240082335" duration="3804000" />
+      <workItem from="1681390003003" duration="3160000" />
+      <workItem from="1681477213366" duration="61000" />
+      <workItem from="1681661962237" duration="4000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="CMakeExceptionBreakpoint" />
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

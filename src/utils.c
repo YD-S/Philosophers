@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/11 20:08:27 by ysingh            #+#    #+#             */
+/*   Updated: 2023/04/11 20:08:29 by ysingh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -80,85 +91,4 @@ size_t	get_last_meal(t_philo *philo)
 	last_meal = philo->last_meal;
 	pthread_mutex_unlock(&philo->main->write_mutex);
 	return (last_meal);
-}
-
-void	set_last_meal(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->main->write_mutex);
-	philo->last_meal = get_time();
-	pthread_mutex_unlock(&philo->main->write_mutex);
-}
-
-void	set_meal_count(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->main->write_mutex);
-	philo->meal_count++;
-	pthread_mutex_unlock(&philo->main->write_mutex);
-}
-
-int	get_meal_count(t_philo *philo)
-{
-	int	meal_count;
-
-	pthread_mutex_lock(&philo->main->write_mutex);
-	meal_count = philo->meal_count;
-	pthread_mutex_unlock(&philo->main->write_mutex);
-	return (meal_count);
-}
-
-void	set_is_dead(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->main->write_mutex);
-	philo->is_dead = 1;
-	pthread_mutex_unlock(&philo->main->write_mutex);
-}
-
-int	get_is_dead(t_philo *philo)
-{
-	int	dead;
-
-	pthread_mutex_lock(&philo->main->write_mutex);
-	dead = philo->is_dead;
-	pthread_mutex_unlock(&philo->main->write_mutex);
-	return (dead);
-}
-
-int	ft_get_out(t_main *main)
-{
-	int	out;
-
-	pthread_mutex_lock(&main->write_mutex);
-	out = main->out;
-	pthread_mutex_unlock(&main->write_mutex);
-	return (out);
-}
-
-void	ft_set_out(t_main *main)
-{
-	pthread_mutex_lock(&main->write_mutex);
-	main->out = 1;
-	pthread_mutex_unlock(&main->write_mutex);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*ptr;
-	size_t	i;
-
-	i = 0;
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	while (i < count * size)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return (ptr);
-}
-
-void	ft_unlocker(t_philo *philo)
-{
-	pthread_mutex_unlock(&philo->main->forks[philo->left_fork]);
-	pthread_mutex_unlock(&philo->main->forks[philo->right_fork]);
 }

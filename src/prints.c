@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prints.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/11 20:08:30 by ysingh            #+#    #+#             */
+/*   Updated: 2023/04/13 15:38:41 by ysingh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -8,23 +19,20 @@ void	ft_print_status(t_philo *philo, size_t timestamp, int action)
 	pthread_mutex_lock(&philo->main->write_mutex);
 	if (action == 1)
 		printf(FBLUE "[%lu ms] philo %d has taken a fork 🥶\n" NONE,
-				timestamp,
-				philo->position);
+			timestamp,
+			philo->position);
 	else if (action == 2)
-		printf(FPURPLE "[%lu ms] philo %d is eating 🤌\n" NONE, timestamp,
-				philo->position);
+		printf(FGREEN "[%lu ms] philo %d is eating 🤌\n" NONE, timestamp,
+			philo->position);
 	else if (action == 3)
-		printf(FGREEN "[%lu ms] philo %d is sleeping 😴\n" NONE, timestamp,
-				philo->position);
+		printf(FYELLOW "[%lu ms] philo %d is sleeping 😴\n" NONE, timestamp,
+			philo->position);
 	else if (action == 4)
-		printf(FYELLOW "[%lu ms] philo %d is thinking 🤔\n" NONE, timestamp,
-				philo->position);
+		printf(FPURPLE "[%lu ms] philo %d is thinking 🤔\n" NONE, timestamp,
+			philo->position);
 	else if (action == 5)
-	{
 		printf(FRED "[%lu ms] philo %d has met his creator 🫡\n" NONE, timestamp,
-				philo->position);
-		return ;
-	}
+			philo->position);
 	pthread_mutex_unlock(&philo->main->write_mutex);
 }
 

@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/11 20:08:18 by ysingh            #+#    #+#             */
+/*   Updated: 2023/04/14 19:03:14 by ysingh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philo.h"
 
+void	ft_one_philo(t_philo *philo)
+{
+	printf(FBLUE "[%lu ms] philo %d has taken a fork 🥶\n" NONE, get_time(), 1);
+	ft_usleep(philo->main->time_to_die, philo->main);
+	printf(FRED "[%lu ms] philo %d has met his creator 🫡\n"NONE, get_time(), 1);
+}
 
- void ft_one_philo(t_philo *philo)
- {
-	 printf(FBLUE "[%lu ms] philo %d has taken a fork 🥶\n" NONE, get_time(), 1);
-	 ft_usleep(philo->main->time_to_die);
-	 printf(FRED "[%lu ms] philo %d has met his creator 🫡\n" NONE, get_time(),1);
- }
 int	ft_start(t_main *main)
 {
 	int			i;
@@ -44,7 +55,7 @@ int	main(int argc, char **argv)
 	if (ft_init(argc, argv, main) == ERROR || ft_fork_init(main) == ERROR
 		|| ft_philo_init(main) == ERROR)
 		return (FALIURE);
-	if(main->philo_count == 1)
+	if (main->philo_count == 1)
 	{
 		ft_one_philo(main->philos);
 		return (0);

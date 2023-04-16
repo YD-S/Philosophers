@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/13 15:37:30 by ysingh            #+#    #+#             */
+/*   Updated: 2023/04/14 15:35:34 by ysingh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -14,12 +25,12 @@
 # define ERROR (-1)
 
 //Colors Start
-# define FRED "\033[31;"
-# define FGREEN "\033[32;"
-# define FYELLOW "\033[33;"
-# define FBLUE "\033[34;"
-# define FPURPLE "\033[35;"
-# define NONE "\033[0m"
+# define FRED "\033[0;31m"
+# define FGREEN "\033[0;32m"
+# define FYELLOW "\033[0;33m"
+# define FBLUE "\033[0;34m"
+# define FPURPLE "\033[0;35m"
+# define NONE "\033[0;37m"
 //Colors End
 
 typedef struct s_main
@@ -50,7 +61,7 @@ typedef struct s_philo
 void				ft_print_status(t_philo *philo, size_t timestamp,
 						int action);
 int					ft_print_error(int error);
-void				ft_usleep(size_t ms);
+void				ft_usleep(size_t ms, t_main *main);
 size_t				get_time(void);
 int					ft_init(int argc, char **argv, t_main *main);
 int					ft_atoi(const char *str);
@@ -72,6 +83,8 @@ void				ft_unlocker(t_philo *philo);
 int					get_is_dead(t_philo *philo);
 int					ft_get_out(t_main *main);
 void				ft_set_out(t_main *main);
-void ft_one_philo(t_philo *philo);
+void				ft_one_philo(t_philo *philo);
+void				ft_death_check(t_main *main, int *is_dead, int *i);
+void				ft_meal_check(t_main *main, int *finished, int i);
 
 #endif
