@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:30:26 by ysingh            #+#    #+#             */
-/*   Updated: 2023/04/14 15:35:31 by ysingh           ###   ########.fr       */
+/*   Updated: 2023/06/02 15:44:07 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 void	*ft_check_death(void *temp_main)
 {
 	t_main	*main;
-	int		i;
-	int		finished;
-	int		is_dead;
+	t_count	cont;
 
-	is_dead = 0;
+	cont.is_dead = 0;
 	main = (t_main *)temp_main;
-	while (!is_dead)
+	while (!cont.is_dead)
 	{
-		finished = 0;
-		i = 0;
-		while (i < main->philo_count)
+		cont.finished = 0;
+		cont.i = 0;
+		while (cont.i < main->philo_count)
 		{
-			ft_death_check(main, &is_dead, &i);
-			if (is_dead)
+			ft_death_check(main, &cont.is_dead, &cont.i);
+			if (cont.is_dead)
 				break ;
-			ft_meal_check(main, &finished, i);
-			i++;
+			if (get_meal_count(&main->philos[cont.i]) >= main->total_meals
+				&& main->total_meals != -1)
+				cont.finished++;
+			cont.i++;
 		}
-		if (finished == main->philo_count)
+		if (cont.finished == main->philo_count)
 			break ;
 		ft_usleep(5, main);
 	}
@@ -56,5 +56,5 @@ void	ft_meal_check(t_main *main, int *finished, int i)
 {
 	if (get_meal_count(&main->philos[i]) >= main->total_meals
 		&& main->total_meals != -1)
-				finished++;
+		finished++;
 }

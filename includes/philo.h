@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:37:30 by ysingh            #+#    #+#             */
-/*   Updated: 2023/04/14 15:35:34 by ysingh           ###   ########.fr       */
+/*   Updated: 2023/06/02 15:43:04 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ typedef struct s_main
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write_mutex;
 }					t_main;
+
+typedef struct s_count
+{
+	int				i;
+	int				finished;
+	int				is_dead;
+}					t_count;
 
 typedef struct s_philo
 {
